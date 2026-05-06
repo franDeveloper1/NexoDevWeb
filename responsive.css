@@ -1,0 +1,235 @@
+/* ============================================================
+   NEXO DEV — responsive.css
+   Breakpoints:
+     xl  : ≤ 1200px
+     lg  : ≤ 1024px
+     md  : ≤ 768px
+     sm  : ≤ 480px
+   ============================================================ */
+
+/* ── XL ≤ 1200px ───────────────────────────── */
+@media (max-width: 1200px) {
+  .hero-title  { font-size: clamp(3rem, 6.5vw, 6rem); }
+  .sculpture   { width: 280px; height: 340px; }
+  .scu-n       { font-size: 190px; }
+  .scu-tags    { left: -60px; }
+
+  .srv-grid    { grid-template-columns: repeat(3, 1fr); }
+  .diff-grid   { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── LG ≤ 1024px ───────────────────────────── */
+@media (max-width: 1024px) {
+  /* nav */
+  nav { padding: 1.2rem 5vw; }
+  .logo-name { font-size: 12px; }
+  .nav-links { gap: 1.6rem; }
+
+  /* hero */
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    padding: 8rem 5vw 4rem;
+    gap: 2rem;
+  }
+  .hero-title { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+  .hero-body  { font-size: 14px; }
+  .sculpture  { width: 240px; height: 300px; }
+  .scu-n      { font-size: 160px; }
+  .scu-tags   { display: none; }  /* hide tags on smaller screens */
+
+  /* sections */
+  section { padding: 5rem 5vw; }
+  .sec-header { gap: 1.5rem; }
+
+  /* services */
+  .srv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .srv:nth-child(3n)  { border-right: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(2n)  { border-right: none; }
+  .srv:nth-child(n+4) { border-bottom: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(n+5) { border-bottom: none; }
+
+  /* diff */
+  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* pricing */
+  .pricing-grid { grid-template-columns: 1fr; gap: 1.5px; }
+  .pc           { padding: 2.2rem; }
+
+  /* works */
+  .works-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    min-height: 400px;
+  }
+  .work.tall { grid-row: span 1; }
+
+  /* contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-desc { max-width: 100%; }
+}
+
+/* ── MD ≤ 768px ────────────────────────────── */
+@media (max-width: 768px) {
+  /* cursor off on touch */
+  #cur-dot, #cur-ring { display: none; }
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+
+  /* NAV — mobile */
+  nav { padding: 1rem 5vw; }
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--black);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    z-index: 190;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a {
+    font-size: 18px;
+    letter-spacing: .12em;
+    color: var(--gray-600);
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    margin-top: .5rem;
+    padding: .7rem 2.2rem !important;
+    font-size: 14px !important;
+  }
+  .nav-hamburger { display: flex; z-index: 210; }
+
+  /* HERO — stacked */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 8rem 5vw 4rem;
+    min-height: auto;
+    gap: 3rem;
+  }
+  .hero-right { justify-content: flex-start; }
+  .hero-glow  { display: none; }
+  .sculpture  {
+    width: 220px; height: 260px;
+  }
+  .scu-n { font-size: 140px; }
+  .hero-stats { position: relative; bottom: auto; right: auto; margin-top: 1.5rem; }
+
+  .hero-title { font-size: clamp(2.8rem, 8vw, 4.5rem); }
+  .hero-body  { max-width: 100%; }
+  .hero-actions { flex-wrap: wrap; }
+
+  /* TICKER */
+  .ticker-item { font-size: 13px; gap: 1.2rem; padding: 0 1.2rem; }
+
+  /* SECTIONS */
+  section { padding: 4rem 5vw; }
+  .sec-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .sec-sub { max-width: 100%; }
+  .sec-title { font-size: clamp(2rem, 6vw, 3rem); }
+
+  /* SERVICES */
+  .srv-grid {
+    grid-template-columns: 1fr;
+    border: none;
+  }
+  .srv {
+    border: 1px solid rgba(255,255,255,.055);
+    border-top: none;
+  }
+  .srv:first-child { border-top: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(3n)  { border-right: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(2n)  { border-right: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(n+4) { border-bottom: 1px solid rgba(255,255,255,.055); }
+  .srv:nth-child(n+5) { border-bottom: 1px solid rgba(255,255,255,.055); }
+  .srv::after { display: none; }
+
+  /* DIFF */
+  #diferencial::before { display: none; }
+  .diff-grid { grid-template-columns: 1fr; }
+
+  /* PRICING */
+  .pricing-grid { grid-template-columns: 1fr; }
+
+  /* PORTFOLIO */
+  .works-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-height: auto;
+  }
+  .work         { min-height: 200px; }
+  .work.tall    { grid-row: span 1; }
+  .work-wm      { font-size: 80px; }
+  .work-name    { font-size: 1.3rem; }
+
+  /* CONTACT */
+  .f-row { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.6rem 5vw;
+  }
+  .foot-links { gap: 1.4rem; }
+}
+
+/* ── SM ≤ 480px ────────────────────────────── */
+@media (max-width: 480px) {
+  nav { padding: .9rem 5vw; }
+  .logo-name { display: none; }  /* show just the N mark on very small screens */
+  .logo-mark { width: 36px; height: 36px; }
+
+  .hero { padding: 7rem 5vw 3rem; gap: 2.5rem; }
+  .hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+  .hero-eyebrow { font-size: 9px; }
+
+  .sculpture  { width: 180px; height: 210px; }
+  .scu-n      { font-size: 110px; }
+
+  .hstat      { padding: .8rem 1rem; }
+  .hstat-n    { font-size: 1.4rem; }
+  .hstat-l    { font-size: 8px; }
+
+  section { padding: 3.5rem 5vw; }
+
+  .btn-fill, .btn-ghost {
+    padding: .78rem 1.6rem;
+    font-size: 10px;
+  }
+
+  .srv  { padding: 1.8rem; }
+  .diff-item { padding: 1.8rem; }
+  .pc   { padding: 2rem 1.8rem; }
+
+  .pc-price { font-size: 2.6rem; }
+
+  .work { padding: 1.8rem; min-height: 160px; }
+  .work-name { font-size: 1.2rem; }
+
+  .contact-grid { gap: 2rem; }
+  .f-input, .f-textarea, .f-select { font-size: 14px; padding: .72rem .9rem; }
+
+  footer { padding: 1.4rem 5vw; }
+  .foot-links { flex-wrap: wrap; gap: 1rem; }
+}
+
+/* ── HOVER: only on non-touch ──────────────── */
+@media (hover: none) {
+  .srv:hover,
+  .diff-item:hover,
+  .pc:hover,
+  .work:hover { background: initial; }
+  .srv::after { display: none; }
+}
